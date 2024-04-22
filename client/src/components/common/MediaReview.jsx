@@ -15,16 +15,7 @@ const ReviewItem = ({ review, onRemoved }) => {
 
   const [onRequest, setOnRequest] = useState(false);
 
-  const onRemove = async () => {
-    if (onRequest) return;
-    setOnRequest(true);
-
-    const { response, err } = await reviewApi.remove({ reviewId: review.id });
-
-    if (err) toast.error(err.message);
-    if (response) onRemoved(review.id);
-  };
-
+ 
   return (
     <Box sx={{
       padding: 2,
